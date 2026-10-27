@@ -25,9 +25,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - name: Build SEO URLs, sitemap, schema
-        run: python3 scripts/build_site.py
+        run: python3 "csa github pages/scripts/build_site.py"
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: "./csa github pages/_site"
       - id: deployment
         uses: actions/deploy-pages@v4
