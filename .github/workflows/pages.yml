@@ -27,7 +27,7 @@ jobs:
         run: |
           touch "csa github pages/.nojekyll"
           python3 "csa github pages/scripts/build_site.py"
-          cp "csa github pages/googleb4207c916f821a2c.html" "csa github pages/_site/"
+          python3 -c 'from pathlib import Path; import xml.etree.ElementTree as ET; d=Path("csa github pages/_site"); s=ET.parse(d/"sitemap.xml"); (d/"sitemap.txt").write_text("\n".join((x.text or "") for x in s.iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc"))+"\n",encoding="utf-8")'
       - uses: actions/upload-pages-artifact@v3
         with:
           path: "./csa github pages/_site"
