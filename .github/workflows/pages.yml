@@ -27,6 +27,7 @@ jobs:
         run: |
           touch "csa github pages/.nojekyll"
           python3 "csa github pages/scripts/build_site.py"
+          cp "csa github pages/googleb4207c916f821a2c.html" "csa github pages/_site/"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: "./csa github pages/_site"
