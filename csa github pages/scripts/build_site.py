@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 LANGS = ('tr','en','es','fr','de','pt','zh','ja','ko','ru','nl','az','it','pl')
 HREFLANG = {lang: ('zh-Hans' if lang=='zh' else lang) for lang in LANGS}
 LOCALES={'tr':'tr_TR','en':'en_US','es':'es_ES','fr':'fr_FR','de':'de_DE','pt':'pt_PT','zh':'zh_CN','ja':'ja_JP','ko':'ko_KR','ru':'ru_RU','nl':'nl_NL','az':'az_AZ','it':'it_IT','pl':'pl_PL'}
-TYPES = ('index','privacy','eula','contact')
+TYPES = ('index','gallery','privacy','eula','contact')
 ET.register_namespace('', 'http://www.sitemaps.org/schemas/sitemap/0.9')
 ET.register_namespace('xhtml','http://www.w3.org/1999/xhtml')
 
@@ -76,8 +76,8 @@ def build(base):
                 meta.append(f'<meta property="{name}" content="{escape(value,quote=True)}">')
             meta.extend(['<meta name="twitter:card" content="summary_large_image">',f'<meta name="twitter:title" content="{escape(title,quote=True)}">',f'<meta name="twitter:description" content="{escape(description,quote=True)}">',f'<meta name="twitter:image" content="{escape(base+"assets/social-preview.png",quote=True)}">'])
             graph={"@context":"https://schema.org","@type":"SoftwareApplication" if ptype=='index' else 'WebPage',"name":"Car Service Archiver" if ptype=='index' else title,"url":canonical,"description":description,"inLanguage":lang}
-            if ptype=='index':graph.update({"operatingSystem":"Windows","applicationCategory":"BusinessApplication","brand":{"@type":"Brand","name":"KupferSoft"},"image":base+'assets/social-preview.png'})
-            # No fabricated store URL, claims of ratings, reviews or business identity.
+            if ptype=='index':graph.update({"operatingSystem":"Windows","applicationCategory":"BusinessApplication","brand":{"@type":"Brand","name":"KupferSoft"},"image":base+'assets/social-preview.png',"sameAs":"https://apps.microsoft.com/detail/9N3FVX0PR4BX"})
+            # Never fabricate ratings, reviews, or business identity; store link was supplied by the product owner.
             meta.append('<script type="application/ld+json">'+json.dumps(graph,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script>')
             result=source[:head.start()]+''.join(meta)+source[head.start():]
             (out_dir/(ptype+'.html')).write_text(result,encoding='utf8')
