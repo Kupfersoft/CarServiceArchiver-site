@@ -64,59 +64,71 @@ main{min-height:50vh}.hero{padding:92px 0 66px;display:grid;grid-template-column
 .ms-store-cta ms-store-badge:focus-visible{outline:3px solid #9fc4ff;outline-offset:4px;border-radius:6px}
 @media(max-width:500px){.gallery-page-actions .ms-store-cta{max-width:100%;justify-content:flex-start}.ms-store-cta ms-store-badge::part(img){max-height:68px}}
 
-/* 2026-11: Official Store badge visual alignment refinement.
-   Hero: badge is the primary action; privacy is a quiet text link underneath. */
+/* Store badge: no outer card, aligned with a simple privacy link. */
 .hero .actions {
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 14px;
   margin-top: 25px;
 }
-.hero .actions .ms-store-cta {
-  min-height: 68px;
-  padding: 10px 14px;
-  border: 1px solid rgba(140, 174, 245, .38);
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(46, 75, 132, .50), rgba(22, 37, 72, .45));
-  box-shadow: 0 10px 30px rgba(3, 9, 23, .20);
-}
-.hero .actions > a.btn.secondary {
+.hero .actions .ms-store-cta,
+.gallery-page-actions .ms-store-cta {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+  width: auto;
   min-height: 0;
-  padding: 4px 2px;
+  padding: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  color: #bacce8;
-  font-size: .85rem;
-  font-weight: 600;
-  text-decoration: none;
-  transform: none;
 }
-.hero .actions > a.btn.secondary:hover {
-  color: #fff;
-  background: transparent;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transform: none;
-}
-/* Gallery: preserve separate navigation and download controls with subtle framing. */
-.gallery-page-actions .ms-store-cta {
-  padding: 8px 12px;
-  border: 1px solid rgba(140, 174, 245, .30);
-  border-radius: 12px;
-  background: rgba(35, 56, 98, .38);
-}
-/* Avoid nesting a styled fallback button in an unnecessary extra box. */
-html:not(.ms-store-badge-ready) .hero .actions .ms-store-cta,
-html:not(.ms-store-badge-ready) .gallery-page-actions .ms-store-cta {
-  padding: 0;
+.hero .actions > .btn.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 0;
+  padding: 8px 0;
   border: 0;
+  border-radius: 0;
   background: transparent;
   box-shadow: none;
+  color: #c3d0e9;
+  font-size: .88rem;
+  line-height: 1.4;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: normal;
+  transition: color .18s ease;
 }
-@media (max-width: 500px) {
-  .hero .actions { width: 100%; }
-  .hero .actions .ms-store-cta { max-width: 100%; }
-  .gallery-page-actions .ms-store-cta { max-width: 100%; }
+.hero .actions > .btn.secondary:hover {
+  transform: none;
+  background: transparent;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.hero .actions > .btn.secondary:focus-visible {
+  outline: 2px solid #9fb8ff;
+  outline-offset: 5px;
+}
+@media (max-width: 520px) {
+  .hero .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .hero .actions > .btn.secondary {
+    padding: 4px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .actions > .btn.secondary { transition: none; }
 }
