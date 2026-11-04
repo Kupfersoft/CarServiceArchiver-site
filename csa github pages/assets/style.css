@@ -53,3 +53,13 @@ main{min-height:50vh}.hero{padding:92px 0 66px;display:grid;grid-template-column
 @media(max-width:750px){.showcase-heading{align-items:flex-start;flex-direction:column;gap:15px}.gallery-page{padding-top:36px}.gallery-grid{grid-template-columns:1fr;gap:17px}.gallery-dialog{padding:8px;max-width:100vw;width:100vw;max-height:100vh;border-radius:0}.gallery-dialog-body{gap:3px}.gallery-dialog button{min-width:30px;height:42px;font-size:1.25rem}.gallery-dialog figure img{max-height:calc(95vh - 140px)}}
 @media(max-width:500px){.showcase-visual{padding:6px 6px 0}.showcase-bar{padding:10px}.showcase-count strong{font-size:.88rem;margin-left:5px}.shot-thumb{flex-basis:166px}.gallery-page-actions{align-items:stretch;flex-direction:column}.gallery-page-actions .store-btn{width:100%}}
 @media(prefers-reduced-motion:reduce){.store-btn,.shot-thumb,.gallery-card{transition:none}.store-btn:hover,.gallery-card:hover{transform:none}}
+
+/* Microsoft Store official badge / progressive enhancement */
+.ms-store-cta{display:inline-flex;align-items:center;min-height:66px;max-width:100%;vertical-align:middle}
+.ms-store-cta ms-store-badge{display:none;max-width:100%;line-height:0}
+.ms-store-badge-ready .ms-store-cta ms-store-badge{display:inline-block}
+.ms-store-badge-ready .ms-store-cta .ms-store-fallback{display:none}
+.ms-store-cta ms-store-badge::part(img){height:auto;max-height:76px;max-width:100%;object-fit:contain}
+.ms-store-cta .ms-store-fallback{min-height:64px}
+.ms-store-cta ms-store-badge:focus-visible{outline:3px solid #9fc4ff;outline-offset:4px;border-radius:6px}
+@media(max-width:500px){.gallery-page-actions .ms-store-cta{max-width:100%;justify-content:flex-start}.ms-store-cta ms-store-badge::part(img){max-height:68px}}
