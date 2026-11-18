@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: [https://kupfersoft.github.io/CarServiceArchiver-site/sitemap.xml](https://kupfersoft.github.io/CarServiceArchiver-site/sitemap.xml
