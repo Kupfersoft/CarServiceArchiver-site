@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kupfersoft.github.io/CarServiceArchiver-site/</loc>
-    <lastmod>2026-11-18</lastmod>
   </url>
+  <url>
+    <loc>https://kupfersoft.github.io/CarServiceArchiver-site/gallery.html</loc>
+  </url>
+  <url>
+    <loc>https://kupfersoft.github.io/CarServiceArchiver-site/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://kupfersoft.github.io/CarServiceArchiver-site/eula.html</loc>
+  </url>
+  <url>
+    <loc>https://kupfersoft.github.io/CarServiceArchiver-site/contact.html</loc>
+  </url>
+  
 </urlset>
